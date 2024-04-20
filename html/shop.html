@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <script src="../js/global.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav id="nav__bar">
+        </nav>
+    </header>
+
+    <main>
+        <secction id="filter">
+            <h5 class="link">
+                Home
+                <img src="../assets/images/header/dropdown.svg" alt="">
+                Shop
+                <img src="../assets/images/header/dropdown.svg" alt="">
+                <span id="clothing--type">All</span>
+            </h5>
+
+            <div class="filter-propery__container">
+                <div class="filter">
+                    <h4>Filters</h4>
+                    <a href="" class="slider-icon">
+                        <i class="fa-solid fa-sliders"></i>
+                    </a>
+                </div>
+
+                <hr size="1" width="90%" color="gray">
+
+                <div class="type" onclick="handleFilter(event)">
+                    <a href="#" class="dropdown-arrow filter-property">
+                        T-shirt
+                    </a>
+                    <a href="#" class="dropdown-arrow filter-property">
+                        Shorts
+                    </a>
+                    <a href="#" class="dropdown-arrow filter-property">
+                        Shirt
+                    </a>
+                    <a href="#" class="dropdown-arrow filter-property">
+                        Hoodie
+                    </a>
+                    <a href="#" class="dropdown-arrow filter-property">
+                        Jeans
+                    </a>
+                </div>
+
+                <hr size="1" width="90%" color="gray">
+
+                <details class="price">
+                    <summary class="dropdown-arrow" onclick="applyStyle(this)">
+                        Price
+                    </summary>
+
+                    <div class="price-slider">
+                        <input type="range" min="0" max="100" value="0" id="min-price">
+                        <input type="range" min="0" max="100" value="100" id="max-price">
+                        <span id="selected-min-price"></span>
+                        <span id="selected-max-price"></span>
+                    </div>
+                </details>
+
+                <hr size="1" width="90%" color="gray">
+
+                <details class="colors">
+                    <summary class="dropdown-arrow" onclick="applyStyle(this)">
+                        Colors
+                    </summary>
+
+                    <div class="colors__container" id="color-assign" onclick="handleFilter(event)">
+                    </div>
+                </details>
+
+                <hr size="1" width="90%" color="gray">
+
+                <details class="sizing">
+                    <summary class="dropdown-arrow" onclick="applyStyle(this)">
+                        Size
+                    </summary>
+
+                    <div class="size__conatiner" onclick="handleFilter(event)">
+                        <a href="#" class="filter-property">XX-Small</a>
+                        <a href="#" class="filter-property">X-Small</a>
+                        <a href="#" class="filter-property">Small</a>
+                        <a href="#" class="filter-property">Medium</a>
+                        <a href="#" class="filter-property">Large</a>
+                        <a href="#" class="filter-property">X-Large</a>
+                        <a href="#" class="filter-property">XX-Large</a>
+                        <a href="#" class="filter-property">3X-Large</a>
+                        <a href="#" class="filter-property">4X-Large</a>
+                    </div>
+                </details>
+
+                <hr size="1" width="90%" color="gray">
+
+                <details class="dress-stylyig">
+                    <summary class="dropdown-arrow" onclick="applyStyle(this)">
+                        Dress Style
+
+                    </summary>
+
+                    <div class="dress-styles__container" onclick="handleFilter(event)">
+                        <a href="#" class="dropdown-arrow filter-property">
+                            Casual
+                        </a>
+                        <a href="#" class="dropdown-arrow filter-property">
+                            Formal
+                        </a>
+                        <a href="#" class="dropdown-arrow filter-property">
+                            Gym
+                        </a>
+                    </div>
+                </details>
+
+                <a href="#">Apply Filter</a>
+            </div>
+        </secction>
+        <secction id="shop">
+            <div id="head">
+                <h3 id="clothing-style--displayed">All</h3>
+                <div>
+                    <h5>Showing 1-10 of 100 Products</h5>
+                    <h5>
+                        Sort by: <span id="sort-type">Best rated</span>
+                        <img src="../assets/images/header/dropdown.svg" alt="">
+
+                    </h5>
+                    <ul class="filter-dropdown">
+                        <li>
+                            <a href="">Best rated</a>
+                        </li>
+                        <li>
+                            <a href="">Worst rated</a>
+                        </li>
+                        <li>
+                            <a href="">Smallest price</a>
+                        </li>
+                        <li>
+                            <a href="">Highes price</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section id="store"></section>
+            <hr size="1" color="gray" width="90%">
+            <div class="pagination">
+                <a href="#">&lArr; Previous</a>
+                <div>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <p>...</p>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                </div>
+                <a href="#">Next &rArr;</a>
+            </div>
+        </secction>
+    </main>
+
+    <footer>
+        <section id="footer">
+        </section>
+    </footer>
+
+    <script src="../js/shop.js"></script>
+    
+</body>
+
+</html>

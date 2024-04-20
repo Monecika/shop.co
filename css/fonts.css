@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Integral CF";
+  src: url("../assets/fonts/integralcf-bold.otf");
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Regular.otf");
+}
+
+.integralCF {
+  font-family: "Integral CF", sans-serif;
+}
+
+.shatoshi {
+  font-family: "Satoshi", sans-serif;
+}

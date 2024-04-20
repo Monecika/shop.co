@@ -1,0 +1,263 @@
+body::-webkit-scrollbar {
+  scrollbar-width: none;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Satoshi", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1 {
+  font-size: clamp(1rem, -0.4628rem + 4.6809vw, 3.75rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 0.2527rem + 3.1915vw, 3.125rem);
+}
+
+#nav__bar {
+  height: 6vw;
+  background-color: white;
+
+  .nav {
+    display: flex;
+    gap: 6vw;
+
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+
+    border-bottom: 0.1vw solid #f2f0f1;
+  }
+
+  .nav > li:first-child > a {
+    display: inline-block;
+    font-size: clamp(1.5rem, 1.258rem + 1.212vw, 2rem);
+    margin-bottom: 0.4vw;
+  }
+
+  .pages {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+  }
+
+  .pages > li > a,
+  .profile > li > a {
+    font-size: clamp(0.75rem, 0.5505rem + 0.6383vw, 1.125rem);
+
+    display: inline-block;
+  }
+
+  .pages > li > a:hover {
+    font-weight: bold;
+  }
+
+  .dropdown-arrow {
+    margin-bottom: 0.2vw;
+    transition: 0.4s;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 12vw;
+    background-color: white;
+    padding: 1vw 0;
+    padding-left: 1vw;
+
+    left: 25vw;
+
+    flex-direction: column;
+    gap: 0.5vw;
+  }
+
+  .dropdown-menu > li:hover > a {
+    font-weight: bold;
+  }
+
+  .pages > li:first-child:hover > .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .pages > li:first-child:hover > .dropdown-menu {
+    display: flex;
+  }
+
+  .search {
+    background-color: #f0f0f0;
+    padding: 10px 0 10px 40px;
+    border-radius: 2vw;
+    height: max-content;
+    width: 25vw;
+  }
+
+  .search > input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 2vw;
+  }
+
+  .profile {
+    display: flex;
+    gap: 2vw;
+  }
+
+  .search > i {
+    color: #757575;
+  }
+}
+
+#footer {
+  background-color: #f0f0f0;
+  padding-bottom: 2vw;
+margin-top: 10vw;
+  input {
+    outline: none;
+  }
+
+  .up-to-date {
+    position: relative;
+    margin: 0 6vw;
+    top: -5vw;
+    padding: 3vw 3vw 3vw 3vw;
+    background-color: black;
+
+    border-radius: 2vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    z-index: 9999;
+  }
+
+  .up-to-date > h2 {
+    color: white;
+    width: 50%;
+
+    font-size: clamp(1.125rem, 0.3936rem + 2.3404vw, 2.5rem);
+  }
+
+  .up-to-date > div > a {
+    display: inline-block;
+
+    color: black;
+    background-color: #fff;
+    padding: 0.65vw 4vw;
+    margin-top: 0.5vw;
+
+    border-radius: 2vw;
+  }
+
+  .up-to-date > div > form {
+    background-color: white;
+    padding: 0.65vw 6vw 0.65vw 2vw;
+    border-radius: 2vw;
+
+    width: max-content;
+    height: max-content;
+  }
+
+  .up-to-date > div > form > input:first-of-type {
+    background-color: transparent;
+    border: none;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0 5vw;
+  }
+
+  .footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 20%;
+  }
+
+  .footer > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+  }
+
+  .footer > div > a {
+    font-size: clamp(1.5rem, 1.258rem + 1.212vw, 2rem);
+    font-weight: bolder;
+  }
+
+  .social-icons > a {
+    height: 2.2vw;
+    width: 2.2vw;
+    text-align: center;
+    border-radius: 50%;
+    border: 0.1vw solid black;
+    background-color: #fff;
+
+    display: inline-block;
+    transition: 0.4s;
+  }
+
+  .social-icons > a > i {
+    padding-top: 0.5vw;
+    transition: 0.4s;
+  }
+
+  .social-icons > a:hover {
+    background-color: black;
+  }
+
+  .social-icons > a:hover > i {
+    color: white;
+  }
+
+  hr {
+    margin: 4vw auto 2vw auto;
+  }
+
+  div > h5 {
+    font-weight: lighter;
+  }
+
+  .card-icons__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 5vw;
+  }
+
+  .card-icons {
+    display: flex;
+    gap: 1vw;
+  }
+
+  .card-icons > img {
+    height: 1vw;
+  }
+
+  li > a {
+    color: #606060;
+  }
+
+  li > a:hover {
+    font-weight: bold;
+  }
+}
