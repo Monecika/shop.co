@@ -32,7 +32,7 @@ function loadHeader() {
   </li>
   <li class="search">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="search" placeholder="Search for products...">
+      <input id="searchInput" type="search" placeholder="Search for products..." >
   </li>
   <li>
       <ul class="profile">

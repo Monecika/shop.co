@@ -1,0 +1,29 @@
+.display_cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product,
+.product > div {
+  display: flex;
+}
+
+.product {
+  padding: 2vw;
+  border: 0.1vw solid gray;
+}
+
+#cart-products {
+  width: 40%;
+}
+#summary {
+  img {
+    height: 10vw;
+  }
+  width: 50%;
+
+  hr{
+    margin: 2vw auto;
+  }
+}
