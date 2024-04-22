@@ -1,0 +1,94 @@
+@media screen and (max-width: 800px) {
+  #shop {
+    #store {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3vw;
+      margin-left: 5vw;
+      justify-content: center;
+      row-gap: 2vw;
+      width: 70vw;
+
+      div {
+        cursor: pointer;
+        width: 22vw;
+      }
+      div > img {
+        height: 22vw;
+        border-radius: 2vw;
+      }
+
+      .addTo {
+        display: none;
+        padding: 5.2vw 2vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #filter {
+    display: none;
+  }
+
+  #shop {
+    width: 100%;
+    margin: 0;
+    #store {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      row-gap: 2vw;
+      width: auto;
+      margin: 0;
+
+      div {
+        cursor: pointer;
+        width: 24%;
+      }
+      div > img {
+        height: 24vw;
+        border-radius: 2vw;
+      }
+
+      .addTo {
+        display: none;
+        padding: 6.2vw 2vw;
+      }
+    }
+    #head {
+      .slider-icon {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #shop {
+    width: 100%;
+    margin: 0;
+    #store {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      row-gap: 2vw;
+      width: auto;
+      margin: 0;
+
+      div {
+        cursor: pointer;
+        width: 35%;
+      }
+      div > img {
+        height: 35vw;
+        border-radius: 2vw;
+      }
+
+      .addTo {
+        display: none;
+        padding: 11.8vw 2vw;
+      }
+    }
+  }
+}

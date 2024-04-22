@@ -1,0 +1,133 @@
+@media screen and (max-width: 1050px) {
+  #footer {
+    .social-icons > a {
+      height: 3vw;
+      width: 3vw;
+    }
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  #nav__bar {
+    .search {
+      display: none;
+    }
+  }
+  #footer {
+    .card-icons > img {
+      height: 1.5vw;
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  #nav__bar {
+    .low-magnify {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #footer {
+    .footer {
+      justify-content: center;
+      gap: 5vw;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  #footer {
+    .social-icons > a {
+      height: 3.5vw;
+      width: 3.5vw;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #footer {
+    .card-icons > img {
+      height: 2vw;
+    }
+  }
+
+  #nav__bar {
+    .pages {
+      display: none;
+    }
+    .nav {
+      justify-content: space-between;
+      margin: 0 5vw;
+    }
+
+    .profile > li > a,
+    .low-magnify {
+      font-size: clamp(1.0625rem, 0.7965rem + 0.8511vw, 1.5625rem);
+    }
+    .burger {
+      display: inline-block;
+      position: relative;
+      bottom: 0.2vw;
+      padding-right: 1vw;
+
+      font-size: clamp(1.25rem, 0.2527rem + 3.1915vw, 3.125rem);
+    }
+
+    .burger:hover ~ .pages-dropdown {
+      display: inline-block;
+      position: absolute;
+      background-color: #fff;
+
+      top: 10vw;
+      left: 5vw;
+      width: 20vw;
+      padding-left: 2vw;
+    }
+  }
+
+  #footer {
+    .social-icons > a {
+      height: 4vw;
+      width: 4vw;
+    }
+  }
+}
+
+@media screen and (max-width: 504px) {
+  #footer {
+    .up-to-date {
+      display: flex;
+      flex-direction: column;
+      gap: 2vw;
+
+      text-align: center;
+    }
+
+    .up-to-date > div {
+      height: 14vw;
+    }
+
+    .up-to-date > h2,
+    .up-to-date > div > form,
+    .up-to-date > div > * {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .up-to-date > div > a {
+      margin-top: 2vw;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  #footer {
+    .social-icons > a {
+      height: 4.5vw;
+      width: 4.5vw;
+    }
+  }
+}

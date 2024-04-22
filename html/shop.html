@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/media/shop-media.css">
+    <link rel="stylesheet" href="../css/media/global-media.css">
     <script src="../js/global.js"></script>
 </head>
 
@@ -32,7 +34,7 @@
             <div class="filter-propery__container">
                 <div class="filter">
                     <h4>Filters</h4>
-                    <a href="" class="slider-icon">
+                    <a href="#" class="slider-icon">
                         <i class="fa-solid fa-sliders"></i>
                     </a>
                 </div>
@@ -130,6 +132,9 @@
             <div id="head">
                 <h3 id="clothing-style--displayed">All</h3>
                 <div>
+                    <a href="#" class="slider-icon" onclick="showFilter()">
+                        <i class="fa-solid fa-sliders"></i>
+                    </a>
                     <h5>Showing 1-10 of 100 Products</h5>
                     <label for="">Sort by: </label>
                     <select name="filter" onchange="getFilter(this.value)">

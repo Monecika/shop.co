@@ -155,10 +155,15 @@ main {
     padding: 2vw 5vw;
     display: flex;
     justify-content: space-between;
+
+    .slider-icon {
+      display: none;
+    }
   }
 
   #head > div {
     display: flex;
+    align-items: center;
     gap: 1vw;
     margin-top: 0.7vw;
   }
@@ -189,7 +194,9 @@ main {
   #store {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    gap: 3vw;
+    margin-left: 5vw;
+    justify-content: center;
     row-gap: 2vw;
     width: 70vw;
 
@@ -199,7 +206,7 @@ main {
 
     .addTo {
       display: none;
-      padding: 3.3vw 7.3vw;
+      padding: 3.5vw 7.2vw;
     }
 
     .addTo > img {
@@ -212,7 +219,7 @@ main {
       position: absolute;
 
       margin-top: -0.2vw;
-      margin-left: 0.1vw;
+      /* margin-left: 0.1vw; */
 
       text-align: center;
 
@@ -255,4 +262,9 @@ main {
 .pagination > div {
   display: flex;
   gap: 1vw;
+}
+
+.displayFilter {
+  display: block;
+  position: absolute;
 }

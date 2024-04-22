@@ -91,8 +91,6 @@ function loadColors() {
   });
 }
 
-function loadCartImg() {}
-
 function loadObjects() {
   let store = document.getElementById("store");
 
@@ -259,13 +257,32 @@ function addCart(event) {
       cart_added.push(name_query);
       localStorage.setItem(cart_local, cart_added.toString());
     }
+
+    cartImplement(name_query, "add");
   } else {
     div_query.classList.remove(added_class);
     img_query.src = cart;
 
-    cart_added.pop(name_query);
+    cart_added.splice(cart_added.indexOf(name_query), 1);
     localStorage.setItem(cart_local, cart_added.toString());
+
+    cartImplement(name_query, "delete");
   }
+}
+
+function cartImplement(h4, task) {
+  let cartObject = {};
+
+  if (localStorage.getItem("cartObject"))
+    cartObject = JSON.parse(localStorage.getItem("cartObject"));
+  Object.entries(product_object).forEach((element) => {
+    if (h4 == element[0])
+      task == "add"
+        ? (cartObject[element[0]] = element[1])
+        : delete cartObject[element[0]];
+  });
+
+  localStorage.setItem("cartObject", JSON.stringify(cartObject));
 }
 
 function getFilter(event) {
@@ -351,6 +368,12 @@ function generateFilteredObject(object) {
 function resetFilters() {
   localStorage.setItem("filter", "");
   loadObjects();
+}
+
+function showFilter() {
+  document
+    .getElementsByClassName("filter-propery__container")[0]
+    .classList.add("displayFilter");
 }
 
 window.onload = () => {

@@ -3,7 +3,23 @@ function loadHeader() {
   nav.innerHTML = `
   <ul class="nav">
   <li>
-      <a href="home.html" class="integralCF">SHOP.CO</a>
+  <i class="fa-solid fa-bars burger"></i>
+    <ul class="pages-dropdown">
+        <li>
+        <a href="shop.html">Shop</a>
+        </li>
+        <li>
+        <a href="shop.html">On Sale</a>
+        </li>
+        <li>
+        <a href="shop.html">New Arrivals</a>
+        </li>
+        <li>
+        <a href="shop.html">Brands</a>
+        </li>
+    </ul>
+
+  <a href="home.html" class="integralCF">SHOP.CO</a>
   </li>
   <li>
       <ul class="pages">
@@ -20,13 +36,13 @@ function loadHeader() {
               </ul>
           </li>
           <li>
-              <a href="">On Sale</a>
+              <a href="shop.html">On Sale</a>
           </li>
           <li>
-              <a href="">New Arrivals</a>
+              <a href="shop.html">New Arrivals</a>
           </li>
           <li>
-              <a href="">Brands</a>
+              <a href="shop.html">Brands</a>
           </li>
       </ul>
   </li>
@@ -36,6 +52,9 @@ function loadHeader() {
   </li>
   <li>
       <ul class="profile">
+            <li>
+                <i class="fa-solid fa-magnifying-glass low-magnify"></i>
+            </li>
           <li>
               <a href="cart.html">
                   <i class="fa-solid fa-cart-shopping"></i>
@@ -71,7 +90,7 @@ function loadFooter() {
 <section class="footer__list">
     <div class="footer">
         <div>
-            <a href="">Shop.Co</a>
+            <a href="gome.html">Shop.Co</a>
             <p>We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
             <div class="social-icons">
                 <a href="">

@@ -1,0 +1,33 @@
+@media screen and (max-width: 750px) {
+  #cart-products {
+    img {
+      height: 15vw;
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  main > section {
+    display: block;
+  }
+
+  #all {
+    #cart-products,
+    #summary {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    #summary {
+      margin-top: 5vw;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #cart-products {
+    img {
+      height: 20vw;
+    }
+  }
+}
