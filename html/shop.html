@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="stylesheet" href="../css/media/shop-media.css">
     <link rel="stylesheet" href="../css/media/global-media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
     <script src="../js/global.js"></script>
 </head>
 
@@ -66,11 +68,10 @@
                         Price
                     </summary>
 
-                    <div class="price-slider">
-                        <input type="range" min="0" max="100" value="0" id="min-price">
-                        <input type="range" min="0" max="100" value="100" id="max-price">
-                        <span id="selected-min-price"></span>
-                        <span id="selected-max-price"></span>
+                    <div id="priceSlider" class="custom-slider"></div>
+                    <div id="priceLabels">
+                        <span id="lowPriceLabel"></span>
+                        <span id="highPriceLabel"></span>
                     </div>
                 </details>
 

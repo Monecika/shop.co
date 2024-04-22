@@ -3,6 +3,39 @@ main {
 }
 
 #filter {
+  #priceSlider {
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 20px;
+    height: 8px;
+    margin-right: 3vw;
+  }
+
+  #priceSlider .noUi-handle {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: none;
+    width: 20px;
+    height: 20px;
+  }
+  #priceSlider .noUi-handle:before,
+  #priceSlider .noUi-handle:after {
+    display: none;
+  }
+  #priceSlider .noUi-connect {
+    border-radius: 20px;
+    background: black;
+  }
+
+  #priceLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-right: 2vw;
+  }
+
   .link {
     margin: 2vw 6vw;
     font-weight: lighter;
@@ -206,7 +239,7 @@ main {
 
     .addTo {
       display: none;
-      padding: 3.5vw 7.2vw;
+      padding: 3.5vw 7.4vw;
     }
 
     .addTo > img {
