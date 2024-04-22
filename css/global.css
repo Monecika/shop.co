@@ -1,6 +1,7 @@
 body::-webkit-scrollbar {
   scrollbar-width: none;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -201,7 +202,7 @@ p {
 
   .up-to-date > div > form {
     background-color: white;
-    padding: 0.65vw 6vw 0.65vw 2vw;
+    padding: 0.65vw 8.5vw 0.65vw 2vw;
     border-radius: 2vw;
 
     width: max-content;

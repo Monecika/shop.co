@@ -1,4 +1,3 @@
-
 .star {
   color: #ffc633;
   font-size: clamp(0.8125rem, 0.2473rem + 1.8085vw, 1.875rem);
@@ -91,8 +90,9 @@
     margin: 0 5vw;
   }
 
-  #arrivals > div,
-  #top > div {
+  #arrivals::-webkit-scrollbar,
+  #top::-webkit-scrollbar {
+    display: none;
   }
 
   #arrivals > div > div > div {

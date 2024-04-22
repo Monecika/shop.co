@@ -395,3 +395,34 @@ document.addEventListener("DOMContentLoaded", () => {
     searchProducts(search_term);
   });
 });
+
+var priceSlider = document.getElementById("priceSlider");
+var lowPriceLabel = document.getElementById("lowPriceLabel");
+var highPriceLabel = document.getElementById("highPriceLabel");
+var lowPrice = 0;
+var highPrice = 500;
+
+noUiSlider.create(priceSlider, {
+  start: [lowPrice, highPrice],
+  connect: true,
+  range: {
+    min: 0,
+    max: 500,
+  },
+});
+
+priceSlider.noUiSlider.on("update", function (values, handle) {
+  if (handle === 0) {
+    lowPriceLabel.textContent = "Low: $" + values[handle];
+    lowPrice = parseFloat(values[handle]);
+  } else {
+    highPriceLabel.textContent = "High: $" + values[handle];
+    highPrice = parseFloat(values[handle]);
+  }
+
+  
+});
+
+function getPrices() {
+  return [lowPrice, highPrice];
+}

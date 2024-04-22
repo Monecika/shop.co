@@ -1,3 +1,11 @@
+@media screen and (max-width: 1150px) {
+  #footer {
+    .up-to-date > div > form {
+      padding: 0.65vw 7vw 0.65vw 2vw;
+    }
+  }
+}
+
 @media screen and (max-width: 1050px) {
   #footer {
     .social-icons > a {
@@ -20,6 +28,14 @@
   }
 }
 
+@media screen and (max-width: 950px) {
+  #footer {
+    .up-to-date > div > form {
+      padding: 0.65vw 6vw 0.65vw 2vw;
+    }
+  }
+}
+
 @media screen and (max-width: 920px) {
   #nav__bar {
     .low-magnify {
@@ -35,6 +51,10 @@
       gap: 5vw;
       flex-wrap: wrap;
     }
+
+    .up-to-date > div > form {
+      padding: 0.65vw 4vw 0.65vw 2vw;
+    }
   }
 }
 
@@ -44,6 +64,10 @@
       height: 3.5vw;
       width: 3.5vw;
     }
+
+    .up-to-date > div > form {
+      padding: 0.65vw 3vw 0.65vw 2vw;
+    }
   }
 }
 
@@ -51,6 +75,10 @@
   #footer {
     .card-icons > img {
       height: 2vw;
+    }
+
+    .up-to-date > div > form {
+      padding: 0.65vw 2vw 0.65vw 2vw;
     }
   }
 
