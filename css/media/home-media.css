@@ -1,0 +1,162 @@
+@media screen and (max-width: 1000px) {
+  #introduction {
+    background-size: 125%;
+
+    .information {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #feedback > div > p {
+    width: 25vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #new--arrivals {
+    #arrivals,
+    #top {
+      margin-right: 0;
+      justify-content: start;
+      gap: 7vw;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #new--arrivals {
+    overflow: hidden;
+    #arrivals,
+    #top {
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      overflow-x: auto;
+    }
+    #arrivals > div > div > img,
+    #top > div > div > img {
+      height: 20vw;
+    }
+  }
+
+  #feedback > div > p {
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #style {
+    .category--small,
+    .category--big {
+      display: block;
+      width: 80%;
+    }
+    div > div > a:last-child {
+      margin: 0;
+    }
+  }
+  #style > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #introduction {
+    background-position-y: 50vw;
+    background-position-x: -35vw;
+
+    .information {
+      width: 90%;
+      margin: 0 auto;
+
+      height: 100vw;
+    }
+
+    .information > * {
+      margin: 0 auto;
+    }
+  }
+
+  #new--arrivals {
+    #arrivals > div > div > img,
+    #top > div > div > img {
+      height: 30vw;
+    }
+  }
+}
+
+@media screen and (max-width: 504px) {
+    
+}
+
+@media screen and (max-width: 430px) {
+  #introduction {
+    background-position-y: 60vw;
+    .information {
+      height: 110vw;
+    }
+
+    .information > div {
+      margin: 0;
+      justify-content: space-between;
+    }
+
+    .information > div > div {
+      width: 30%;
+    }
+
+    .information > div > div:not(:last-child) {
+      border-right: none;
+    }
+  }
+
+  #feedback > div > p {
+    width: 55vw;
+  }
+
+  #new--arrivals {
+    #arrivals,
+    #top {
+      gap: 15vw;
+    }
+
+    #arrivals > div > div > img,
+    #top > div > div > img {
+      height: 30vw;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #introduction {
+    background-position-y: 70vw;
+    .information {
+      height: 120vw;
+    }
+
+    .information > div {
+      gap: 3vw;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .information > div > div {
+      width: max-content;
+      border: none;
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  #introduction {
+    background-position-y: 80vw;
+    .information {
+      height: 130vw;
+    }
+  }
+}
