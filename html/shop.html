@@ -24,7 +24,7 @@
     </header>
 
     <main>
-        <secction id="filter">
+        <secction id="filter" class="filter__section">
             <h5 class="link">
                 Home
                 <img src="../assets/images/header/dropdown.svg" alt="">
@@ -36,7 +36,7 @@
             <div class="filter-propery__container">
                 <div class="filter">
                     <h4>Filters</h4>
-                    <a href="#" class="slider-icon">
+                    <a href="#" class="slider-icon" id="filter-icon">
                         <i class="fa-solid fa-sliders"></i>
                     </a>
                 </div>
@@ -147,7 +147,7 @@
                     </select>
                 </div>
             </div>
-            <section id="store" onclick="addCart(event)"></section>
+            <section id="store" onclick="sendEvent(event)"></section>
             <hr size="1" color="gray" width="90%">
             <div class="pagination">
                 <a href="#">&lArr; Previous</a>
