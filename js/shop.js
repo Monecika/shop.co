@@ -352,7 +352,6 @@ function sendEvent(event) {
   let star = item.querySelectorAll("h3")[0].innerHTML;
   let price = item.querySelectorAll("h3")[1].innerHTML;
 
-
   let productDetail = {
     name: name,
     img: image,

@@ -45,22 +45,15 @@ function loadItems() {
   products.innerHTML = "";
 
   Object.entries(cartObject).forEach((element) => {
-    let selectedSize = sizes.find((size) =>
-      element[1].properties.includes(size)
-    );
-    let SelectedColor = colors.find((color) =>
-      element[1].properties.includes(color)
-    );
-
     products.innerHTML += `
     <div class="product" id="${element[0]}">
         <div class="item-info">
             <img src="../assets/images/shop/${element[0]}.png"></img>
             <div>
                 <h4>${element[0]}</h4>
-                <h6>Size: <span>${selectedSize}</span></h6>
-                <h6>Color: <span>${SelectedColor}</span></h6>
-                <h3 class="price">$${element[1].price}</h3>
+                <h6>Size: <span>${element[1].size}</span></h6>
+                <h6>Color: <span>${element[1].color}</span></h6>
+                <h3 class="price">${element[1].price}</h3>
             </div>    
         </div>
         <div>
@@ -122,7 +115,7 @@ function removeAll() {
   `;
 
   document.getElementById("all").style.justifyContent = "center";
-    }
+}
 
 function addAll() {
   document.getElementById("all").innerHTML = `

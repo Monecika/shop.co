@@ -82,7 +82,7 @@
     margin: 0.2vw 0;
   }
 
-  .color {
+  .div_color {
     display: inline-block;
     height: 2vw;
     width: 2vw;
@@ -120,5 +120,19 @@
     text-align: center;
 
     border-radius: 2vw;
+  }
+
+  .colors__container > div {
+    text-align: center;
+  }
+
+  .tick {
+    vertical-align: middle;
+    font-size: clamp(0.75rem, 0.5505rem + 0.6383vw, 1.125rem);
+  }
+
+  .black--color {
+    background-color: black;
+    color: white;
   }
 }
