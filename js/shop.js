@@ -346,7 +346,6 @@ function sendEvent(event) {
     item = item.parentNode;
   }
 
-  // console.log(item);
   let name = item.querySelector("h4").innerHTML;
   let image = item.querySelectorAll("img")[1].src;
   let star = item.querySelectorAll("h3")[0].innerHTML;

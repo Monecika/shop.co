@@ -20,9 +20,6 @@ function addTick(event) {
   const colorDiv = event.target.closest(".div_color");
   if (colorDiv) {
     console.log("Clicked color:", colorDiv.style.backgroundColor);
-    // Here you can add your logic to handle the click event on the color div
-    // For example, you might want to add a class to indicate selection
-    // colorDiv.classList.toggle('selected');
   }
 }
 
@@ -115,13 +112,6 @@ function generateSizes(prop) {
   });
   return div;
 }
-
-// Array.from(colors_el).forEach((element) => {
-//   element.addEventListener("click", () => {
-//     console.log("Clicked color:", element.style.backgroundColor); // Debugging: log the color that was clicked
-//     getTick(element);
-//   });
-// });
 
 window.onload = () => {
   createObject();

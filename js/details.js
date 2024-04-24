@@ -154,10 +154,11 @@ function sendToLocal() {
 
   let cart_add = [];
   if (localStorage.getItem("cart_add")) {
-    cart_add = JOSN.parse(localStorage.getItem("cart_add"));
+    cart_add = localStorage.getItem("cart_add").split(", ");
   }
+  console.log(cart_add);
   cart_add.push(name);
-  localStorage.setItem("cart_add", cart_add);
+  localStorage.setItem("cart_add", cart_add.toString());
 }
 
 function eventSelector() {
@@ -190,4 +191,3 @@ window.onload = () => {
   counterChange();
 };
 
-// colorsContainer.addEventListener("click", addTick);

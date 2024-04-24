@@ -1,13 +1,8 @@
 @media screen and (max-width: 800px) {
   #shop {
     #store {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3vw;
-      margin-left: 5vw;
-      justify-content: center;
-      row-gap: 2vw;
-      width: 70vw;
+      grid-template-columns: repeat(2, auto);
+      width: auto;
 
       div {
         cursor: pointer;
@@ -39,16 +34,12 @@
     width: 100%;
     margin: 0;
     #store {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      row-gap: 2vw;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
       width: auto;
-      margin: 0;
 
       div {
         cursor: pointer;
-        width: 24%;
       }
       div > img {
         height: 24vw;
@@ -65,14 +56,15 @@
         display: inline-block;
       }
     }
+
+    
   }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
   .filter__section > .displayFilter {
     top: 18vw !important;
   }
-  
 }
 
 @media screen and (max-width: 450px) {
