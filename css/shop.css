@@ -1,6 +1,6 @@
 main {
   display: flex;
-  justify-content: space-evenly;
+  gap: 8vw;
 }
 
 #filter {
@@ -185,9 +185,10 @@ main {
   }
 
   #head {
-    padding: 2vw 5vw;
-    display: flex;
-    justify-content: space-between;
+    padding: 2vw;
+    padding-left: 2vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     .slider-icon {
       display: none;
@@ -199,9 +200,10 @@ main {
     align-items: center;
     gap: 1vw;
     margin-top: 0.7vw;
+    width: max-content;
   }
 
-  #head > div > h5 {
+  #head > div > h6 {
     font-weight: lighter;
   }
 
@@ -225,12 +227,16 @@ main {
   }
 
   #store {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 3vw;
+    /* width: 20vw; */
     gap: 3vw;
-    justify-content: center;
-    row-gap: 2vw;
-    width: 70vw;
+    /* flex-wrap: wrap; */
+    /* gap: 3vw; */
+    /* justify-content: center; */
+    /* row-gap: 2vw; */
+    /* width: 70vw; */
 
     div {
       cursor: pointer;
