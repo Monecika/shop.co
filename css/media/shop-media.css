@@ -27,7 +27,11 @@
 }
 
 @media screen and (max-width: 700px) {
-  #filter {
+  .filter__section > h5 {
+    display: none;
+  }
+
+  .filter__section > .filter-propery__container {
     display: none;
   }
 
@@ -64,7 +68,18 @@
   }
 }
 
+@media screen and (max-width: 600px){
+  .filter__section > .displayFilter {
+    top: 18vw !important;
+  }
+  
+}
+
 @media screen and (max-width: 450px) {
+  .filter__section > .displayFilter {
+    top: 20vw !important;
+  }
+
   #shop {
     width: 100%;
     margin: 0;

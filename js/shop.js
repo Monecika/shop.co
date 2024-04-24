@@ -116,35 +116,6 @@ function searchProducts(searchTerm) {
   });
 }
 
-function createObject(filter) {
-  let filter_arr = commitFilter(filter);
-
-  localStorage.setItem("filter", filter_arr);
-  let element = "";
-
-  Object.entries(product_object).forEach(([productName, productDetails]) => {
-    const { stars, price, sale, properties } = productDetails;
-    if (
-      filter_arr.split(",").some((element) => properties.includes(element)) ||
-      filter == ""
-    ) {
-      element += `
-        <div>
-          <div class="addTo">
-          ${createImgElement(productName)}
-          </div>
-          <img src="../assets/images/shop/${productName}.png"></img>
-          <h4>${productName}</h4>
-          <h3 class="star">${starCreator(stars)}</h3>
-          <h3>$${sale ? price - sale : price}</h3>
-        </div>
-      `;
-    }
-  });
-
-  return element;
-}
-
 function createImgElement(name) {
   let items = [];
   if (localStorage.getItem(cart_local))
@@ -154,18 +125,6 @@ function createImgElement(name) {
   else {
     return `<img src=${cart}></img>`;
   }
-}
-
-function commitFilter(filter) {
-  let filter_arr = [];
-
-  const existingFilter = localStorage.getItem("filter");
-  if (existingFilter) {
-    filter_arr = existingFilter.split(",");
-  }
-
-  if (!filter_arr.includes(filter)) filter_arr.push(filter);
-  return filter_arr.toString();
 }
 
 function applyStyle(element) {
@@ -197,6 +156,52 @@ function getTick(element) {
     : (element.innerHTML = "");
 }
 
+function createObject(filter) {
+  let filter_arr = commitFilter(filter);
+  let [minPrice, maxPrice] = getPrices();
+
+  localStorage.setItem("filter", filter_arr);
+  let element = "";
+
+  Object.entries(product_object).forEach(([productName, productDetails]) => {
+    const { stars, price, sale, properties } = productDetails;
+    const discountedPrice = sale ? price - sale : price;
+
+    if (
+      (filter_arr.split(",").some((element) => properties.includes(element)) ||
+        filter == "") &&
+      discountedPrice >= minPrice &&
+      discountedPrice <= maxPrice
+    ) {
+      element += `
+        <div>
+          <div class="addTo">
+          ${createImgElement(productName)}
+          </div>
+          <img src="../assets/images/shop/${productName}.png"></img>
+          <h4>${productName}</h4>
+          <h3 class="star">${starCreator(stars)}</h3>
+          <h3>$${discountedPrice}</h3>
+        </div>
+      `;
+    }
+  });
+
+  return element;
+}
+
+function commitFilter(filter) {
+  let filter_arr = [];
+
+  const existingFilter = localStorage.getItem("filter");
+  if (existingFilter) {
+    filter_arr = existingFilter.split(",");
+  }
+
+  if (!filter_arr.includes(filter)) filter_arr.push(filter);
+  return filter_arr.toString();
+}
+
 function handleFilter(event) {
   if (event.target.classList.contains("filter-property")) {
     event.preventDefault();
@@ -219,70 +224,6 @@ function filterElements(filter) {
 
   document.getElementById("clothing-style--displayed").innerHTML = filter;
   document.getElementById("clothing--type").innerHTML = filter;
-}
-
-function addCart(event) {
-  let cart_added = [];
-  if (localStorage.getItem(cart_local))
-    cart_added = localStorage.getItem(cart_local).split(",");
-  let newTarget;
-
-  if (event.target.tagName === "IMG") {
-    newTarget = event.target.parentNode.parentNode;
-  } else if (
-    event.target.tagName !== "DIV" ||
-    event.target.classList.contains("addTo")
-  ) {
-    newTarget = event.target.parentNode;
-  } else {
-    newTarget = event.target;
-  }
-
-  const newEvent = new Event(event.type, event);
-
-  Object.defineProperty(newEvent, "target", {
-    value: newTarget,
-    writable: false,
-  });
-
-  let query = newEvent.target;
-  let div_query = query.querySelector("div");
-  let img_query = query.querySelector("div img");
-  let name_query = query.querySelector("h4").innerHTML;
-  if (!div_query.classList.contains(added_class)) {
-    div_query.classList.add(added_class);
-    img_query.src = full_cart;
-
-    if (!cart_added.includes(name_query)) {
-      cart_added.push(name_query);
-      localStorage.setItem(cart_local, cart_added.toString());
-    }
-
-    cartImplement(name_query, "add");
-  } else {
-    div_query.classList.remove(added_class);
-    img_query.src = cart;
-
-    cart_added.splice(cart_added.indexOf(name_query), 1);
-    localStorage.setItem(cart_local, cart_added.toString());
-
-    cartImplement(name_query, "delete");
-  }
-}
-
-function cartImplement(h4, task) {
-  let cartObject = {};
-
-  if (localStorage.getItem("cartObject"))
-    cartObject = JSON.parse(localStorage.getItem("cartObject"));
-  Object.entries(product_object).forEach((element) => {
-    if (h4 == element[0])
-      task == "add"
-        ? (cartObject[element[0]] = element[1])
-        : delete cartObject[element[0]];
-  });
-
-  localStorage.setItem("cartObject", JSON.stringify(cartObject));
 }
 
 function getFilter(event) {
@@ -371,30 +312,89 @@ function resetFilters() {
 }
 
 function showFilter() {
-  document
-    .getElementsByClassName("filter-propery__container")[0]
-    .classList.add("displayFilter");
+  const filterContainer = document.getElementsByClassName(
+    "filter-propery__container"
+  )[0];
+  if (filterContainer.classList.contains("displayFilter")) {
+    filterContainer.classList.remove("displayFilter");
+  } else {
+    filterContainer.classList.add("displayFilter");
+  }
 }
 
-window.onload = () => {
-  loadArrows();
-  loadColors();
-  loadObjects();
-};
+function addCart() {
+  let sectItems = document.querySelectorAll("#store > div");
+  let cartItems = {};
+  if (localStorage.getItem("cartObject"))
+    cartItems = JSON.parse(localStorage.getItem("cartObject"));
+  if (cartItems) {
+    for (let i = 0; i < sectItems.length; i++) {
+      let name = document.querySelectorAll("#store > div > h4")[i].innerHTML;
+      Object.entries(cartItems).forEach((element) => {
+        if (name == element[0])
+          if (!sectItems[i].classList.contains(added_class))
+            sectItems[i].classList.add(added_class);
+          else sectItems[i].classList.remove(added_class);
+      });
+    }
+  }
+}
 
-window.onbeforeunload = () => {
-  localStorage.removeItem("filter");
-};
+function sendEvent(event) {
+  let item = event.target;
+  while (item.tagName !== "DIV" || item.classList.contains("addTo")) {
+    item = item.parentNode;
+  }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById("searchInput");
+  // console.log(item);
+  let name = item.querySelector("h4").innerHTML;
+  let image = item.querySelectorAll("img")[1].src;
+  let star = item.querySelectorAll("h3")[0].innerHTML;
+  let price = item.querySelectorAll("h3")[1].innerHTML;
 
-  searchInput.addEventListener("input", function () {
-    let search_term = this.value.toLowerCase();
-    console.log(search_term);
-    searchProducts(search_term);
+  let productDetail = {
+    name: name,
+    img: image,
+    star: star,
+    price: price,
+    prop: product_object[name].properties.join(", "),
+  };
+
+  localStorage.setItem("productDetail", JSON.stringify(productDetail));
+  window.location.href = "../html/detail.html";
+}
+
+function cartImplement(name_query, task) {
+  let cartObject = {};
+
+  if (localStorage.getItem("cartObject"))
+    cartObject = JSON.parse(localStorage.getItem("cartObject"));
+  Object.entries(product_object).forEach((element) => {
+    if (name_query == element[0])
+      task == "add"
+        ? (cartObject[element[0]] = element[1])
+        : delete cartObject[element[0]];
   });
-});
+
+  localStorage.setItem("cartObject", JSON.stringify(cartObject));
+}
+
+function getPrices() {
+  return [lowPrice, highPrice];
+}
+
+function checkScreenWidth() {
+  const screenWidth = window.innerWidth;
+  const filterContainer = document.getElementsByClassName(
+    "filter-propery__container"
+  )[0];
+  if (
+    screenWidth < 700 &&
+    filterContainer.classList.contains("displayFilter")
+  ) {
+    filterContainer.classList.remove("displayFilter");
+  }
+}
 
 var priceSlider = document.getElementById("priceSlider");
 var lowPriceLabel = document.getElementById("lowPriceLabel");
@@ -419,10 +419,37 @@ priceSlider.noUiSlider.on("update", function (values, handle) {
     highPriceLabel.textContent = "High: $" + values[handle];
     highPrice = parseFloat(values[handle]);
   }
-
-  
 });
 
-function getPrices() {
-  return [lowPrice, highPrice];
-}
+const filterIcon = document.getElementById("filter-icon");
+filterIcon.addEventListener("click", showFilter);
+priceSlider.noUiSlider.on("change", function () {
+  let filter = localStorage.getItem("filter") || "";
+  let element = createObject(filter);
+
+  let store = document.getElementById("store");
+  store.innerHTML = element;
+});
+
+window.addEventListener("resize", checkScreenWidth);
+
+window.onload = () => {
+  loadArrows();
+  loadColors();
+  loadObjects();
+  addCart();
+};
+
+window.onbeforeunload = () => {
+  localStorage.removeItem("filter");
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
+
+  searchInput.addEventListener("input", function () {
+    let search_term = this.value.toLowerCase();
+    console.log(search_term);
+    searchProducts(search_term);
+  });
+});

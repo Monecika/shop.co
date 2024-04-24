@@ -1,5 +1,6 @@
 main {
   display: flex;
+  justify-content: space-evenly;
 }
 
 #filter {
@@ -178,7 +179,6 @@ main {
 
 #shop {
   display: block;
-  margin-right: 5vw;
 
   hr {
     margin: 2vw auto;
@@ -228,7 +228,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
-    margin-left: 5vw;
     justify-content: center;
     row-gap: 2vw;
     width: 70vw;
@@ -297,7 +296,11 @@ main {
   gap: 1vw;
 }
 
-.displayFilter {
-  display: block;
-  position: absolute;
+.filter__section > .displayFilter {
+  display: block !important;
+  position: absolute !important;
+  background-color: #fff;
+  width: 40vw !important;
+  z-index: 10 !important;
+  top: 16vw !important;
 }
