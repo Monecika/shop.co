@@ -90,7 +90,7 @@ function loadFooter() {
 <section class="footer__list">
     <div class="footer">
         <div>
-            <a href="gome.html">Shop.Co</a>
+            <a href="home.html">Shop.Co</a>
             <p>We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
             <div class="social-icons">
                 <a href="">
