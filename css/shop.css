@@ -4,6 +4,15 @@ main {
 }
 
 #filter {
+  .font--weight {
+    font-weight: bold;
+  }
+
+  .bg--black {
+    color: white;
+    background-color: black !important;
+  }
+
   #priceSlider {
     width: 80%;
     margin: 20px auto;
