@@ -84,6 +84,7 @@ function loadArrows() {
 
 function loadColors() {
   let colors = document.getElementById("color-assign");
+  colors.innerHTML = "";
   div_color.forEach((element) => {
     colors.innerHTML += `
     <div style="background-color: ${element}" class="filter__color-property" onclick="getTick(this)"></div>
@@ -199,12 +200,25 @@ function commitFilter(filter) {
   }
 
   if (!filter_arr.includes(filter)) filter_arr.push(filter);
+  else {
+    filter_arr.splice(filter_arr.indexOf(filter, 1));
+  }
   return filter_arr.toString();
+}
+
+function handleFilterStyle(event) {
+  let classList = event.target.classList;
+  if (classList.contains("cloth-type") || classList.contains("style-type"))
+    if (!classList.contains("font--weight")) classList.add("font--weight");
+    else classList.remove("font--weight");
+  else if (event.target.parentNode.classList.contains("size__conatiner"))
+    if (!classList.contains("bg--black")) classList.add("bg--black");
+    else classList.remove("bg--black");
 }
 
 function handleFilter(event) {
   if (event.target.classList.contains("filter-property")) {
-    event.preventDefault();
+    handleFilterStyle(event);
     filterElements(event.target.textContent.trim());
   }
 }
@@ -252,6 +266,8 @@ function getFilter(event) {
 }
 
 function createFilteredObject(sort_item, order) {
+  resetFilters();
+
   let sortedArray = Object.entries(product_object);
   let object = [];
   if (sort_item == "stars")
@@ -306,19 +322,41 @@ function generateFilteredObject(object) {
   store.innerHTML = inner;
 }
 
+function resetStyles() {
+  Array.from(document.getElementsByClassName("cloth-type")).forEach((element) =>
+    element.classList.remove("font--weight")
+  );
+
+  Array.from(
+    document
+      .getElementsByClassName("size__conatiner")[0]
+      .querySelectorAll(".bg--black")
+  ).forEach((element) => element.classList.remove("bg--black"));
+
+  lowPrice = 0;
+  highPrice = 500;
+  priceSlider.noUiSlider.set([lowPrice, highPrice]);
+
+  loadColors();
+}
+
 function resetFilters() {
+  resetStyles();
+
   localStorage.setItem("filter", "");
   loadObjects();
 }
 
 function showFilter() {
-  const filterContainer = document.getElementsByClassName(
-    "filter-propery__container"
-  )[0];
-  if (filterContainer.classList.contains("displayFilter")) {
-    filterContainer.classList.remove("displayFilter");
-  } else {
-    filterContainer.classList.add("displayFilter");
+  if (window.innerWidth < 700) {
+    const filterContainer = document.getElementsByClassName(
+      "filter-propery__container"
+    )[0];
+    if (filterContainer.classList.contains("displayFilter")) {
+      filterContainer.classList.remove("displayFilter");
+    } else {
+      filterContainer.classList.add("displayFilter");
+    }
   }
 }
 
