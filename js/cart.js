@@ -1,27 +1,4 @@
 const cartStorage = "cartObject";
-const colors = [
-  "Green",
-  "Red",
-  "Yellow",
-  "Orange",
-  "Cyan",
-  "Blue",
-  "Purple",
-  "Pink",
-  "White",
-  "Black",
-];
-const sizes = [
-  "XX-Small",
-  "X-Small",
-  "Small",
-  "Medium",
-  "Large",
-  "X-Large",
-  "XX-Large",
-  "3X-Large",
-  "4X-Large",
-];
 
 function localStorageExtract() {
   if (

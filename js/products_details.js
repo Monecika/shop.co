@@ -1,16 +1,5 @@
 import { colors_arr } from "./parameters.js";
-
-const sizes_arr = [
-  "XX-Small",
-  "X-Small",
-  "Small",
-  "Medium",
-  "Large",
-  "X-Large",
-  "XX-Large",
-  "3X-Large",
-  "4X-Large",
-];
+import { sizes_arr } from "./parameters.js";
 
 function getTick(event) {
   console.log(event);
